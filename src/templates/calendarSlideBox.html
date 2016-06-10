@@ -14,7 +14,9 @@
           class="event-item"
           ng-click="vm.onEventClick({calendarEvent: event})">
           <span ng-bind-html="vm.$sce.trustAsHtml(event.title)"></span>
-          <span ng-if="vm.calendarConfig.displayEventEndTimes && event.endsAt"> - (<span ng-bind="event.endsAt | calendarDate:(isMonthView ? 'time' : 'datetime'):true"></span>)</span>
+		  <span ng-if="vm.calendarConfig.displayEventTimes">
+          (<span ng-bind="event.startsAt | calendarDate:(isMonthView ? 'time' : 'datetime'):true"></span><span ng-if="vm.calendarConfig.displayEventEndTimes && event.endsAt"> - <span ng-bind="event.endsAt | calendarDate:(isMonthView ? 'time' : 'datetime'):true"></span></span>)
+		  </span>
         </a>
 
         <a
